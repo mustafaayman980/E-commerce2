@@ -3,7 +3,7 @@ import { IoIosStar, IoIosStarHalf } from "react-icons/io";
 
 import { FaCartArrowDown, FaRegHeart, FaShare } from "react-icons/fa";
 import { Link } from "react-router";
-import ProductDetails from "../../pages/Home/ProductDetails";
+import ProductDetails from "../../pages/ProductDetails/ProductDetails";
 function Product({item}) {
     // console.log(item);
     

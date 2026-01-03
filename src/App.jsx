@@ -2,7 +2,8 @@ import TopHeader from "./components/1-header/TopHeader"
 import BtmHeader from "./components/1-header/BtmHeader";
 import Home from "./pages/Home/Home";
 import { Route, Routes } from "react-router";
-import ProductDetails from "./pages/Home/ProductDetails";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
+
 
 
 

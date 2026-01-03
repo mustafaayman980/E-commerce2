@@ -2,6 +2,7 @@ import Slider from "../../components/2-Hero/Slider";
 import "./home.css";
 import SlidProduct from "../../components/3-slideproducts/SlidProduct";
 import { useEffect, useState } from "react";
+import Loading from "../Loading/Loading";
 
 const categories = [
   "smartphones",
@@ -43,18 +44,16 @@ function Home() {
   return (
     <div>
       <Slider />
-      {loading ? (
-        <p>loading.......</p>
-      ) : (
-        categories.map((category) => (
-          <SlidProduct
-            key={category}
-            data={products[category]}
-            title={category.replace("-", " ")}
-            
-          />
-        ))
-      )}
+      {loading
+        ? // <p>loading.......</p>
+          categories.map((category) => <Loading key={category}/>)
+        : categories.map((category) => (
+            <SlidProduct
+              key={category}
+              data={products[category]}
+              title={category.replace("-", " ")}
+            />
+          ))}
     </div>
   );
 }

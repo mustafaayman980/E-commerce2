@@ -1,0 +1,114 @@
+root {
+    --main-color: #0090f0;
+    --p-color: #7b7b7b;
+    --bg-color: #f3f3f3;
+    --white-color: #fff;
+    --color-heading: #253237;
+    --border-color: #d6d6d6d5;
+}
+
+
+.item_details{
+    padding: 50px 0; 
+}
+
+.item_details .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item_details .imgs{
+    width: 40%;
+}
+.item_details .imgs .bag_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.item_details .imgs .bag_img img{
+    max-height: 450px;
+    width: auto;
+}
+.item_details .imgs .small_img{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.item_details .imgs .small_img img{
+    width: 24%;
+}
+
+.item_details .details{
+    width: 58%;
+
+}
+.item_details .details .name{
+    color: var(--main-color);
+    margin-bottom: 30px;
+}
+
+.item_details .details .stars {
+    margin: 15px 0;
+    display: flex;
+    gap: 5px;
+}
+
+.item_details .details .stars svg {
+    font-size: 20px;
+    fill: gold;
+}
+
+.item_details .details .price{
+    font-size: 22px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.item_details .details h5{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.item_details .details .desc{
+    line-height: 1.5;
+}
+.item_details .details .stock {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.item_details .details .btn{
+    border-radius: 2px;
+    padding: 12px 15px;
+    font-size: 16px;
+}
+.item_details .details .btn svg {
+    font-size: 20px;
+}
+
+.item_details .details .icons {
+    display: flex;
+    gap: 10px;
+    transition: 0.3s;
+    margin: 20px 0;
+}
+.item_details .details .icons span {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.item_details .details .icons span:hover{
+    background: var(--main-color);
+
+}
+.item_details .details .icons svg:hover {
+    fill: var(--white-color);
+transition: 0.3s;
+}
