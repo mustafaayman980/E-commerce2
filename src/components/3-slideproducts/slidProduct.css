@@ -51,7 +51,7 @@ root {
 
 .product .card:hover {
     border-color: var(--main-color);
-    box-shadow: 10px 10px 15px #94949423 ;
+    box-shadow: 10px 10px 15px #94949423;
 }
 
 
@@ -79,6 +79,7 @@ root {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
 .card .description {
     margin-bottom: 10px;
     color: var(--p-color);
@@ -106,7 +107,8 @@ root {
     font-weight: bold;
     font-size: 20px;
 }
-.card .icons{
+
+.product .icons {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -116,10 +118,12 @@ root {
     gap: 10px;
     transition: 0.3s;
 }
-.card:hover .icons{
-    right: 20px;
+
+.product:hover .icons {
+    right: 30px;
 }
-.card .icons span{
+
+.product .icons span {
     width: 40px;
     height: 40px;
     background: var(--bg-color);
@@ -128,4 +132,33 @@ root {
     justify-content: center;
     border-radius: 100%;
     cursor: pointer;
+}
+
+.product.in-cart .icons .add-to-cart {
+    background: var(--main-color);
+}
+
+.product.in-cart .icons .add-to-cart svg {
+    fill: var(--white-color);
+}
+
+.product .card .status-cart {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #7b7b7b;
+}
+.product.in-cart .card .status-cart{
+    top: 10px;
+}
+
+
+.product .card .status-cart svg{
+    color: rgba(1, 255, 107, 0.841);
 }

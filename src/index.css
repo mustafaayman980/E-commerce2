@@ -69,3 +69,17 @@ a {
 .btn:hover{
 scale: 1.1;
 }
+
+header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  background: var(--white-color);
+
+}
+nav{
+  padding-top:150px;
+}
+
