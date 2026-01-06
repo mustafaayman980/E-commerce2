@@ -136,6 +136,7 @@ root {
 
 .product.in-cart .icons .add-to-cart {
     background: var(--main-color);
+    pointer-events: none;
 }
 
 .product.in-cart .icons .add-to-cart svg {

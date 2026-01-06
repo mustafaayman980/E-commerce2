@@ -31,11 +31,11 @@ function TopHeader() {
             <FaRegHeart />
             <span className="count">0</span>
           </div>
-          <div className="header_icons">
-            <div className="icon">
+          <div className="icon">
+            <Link to="/cart">
               <FaShoppingCart />
               <span className="count">{cartItems.length}</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

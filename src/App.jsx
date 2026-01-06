@@ -3,6 +3,7 @@ import BtmHeader from "./components/1-header/BtmHeader";
 import Home from "./pages/Home/Home";
 import { Route, Routes } from "react-router";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   return (
@@ -11,9 +12,11 @@ function App() {
         <TopHeader />
         <BtmHeader />
       </header>
-      <nav >
+      <nav>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+
           <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
       </nav>

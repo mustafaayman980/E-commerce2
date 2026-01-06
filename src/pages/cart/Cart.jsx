@@ -1,0 +1,54 @@
+import React, { useContext } from "react";
+import { CartContext } from "../../components/4-Context/CartContext";
+import { FaTrashAlt } from "react-icons/fa";
+import "./cart.css";
+function Cart() {
+  const { cartItems } = useContext(CartContext);
+  const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+  console.log("====================================");
+  console.log(cartItems);
+  console.log("====================================");
+  return (
+    <div className="checkOut">
+      <div className="orderSummary">
+        <h1>Order Summary</h1>
+        <div className="items">
+          {cartItems.length === 0 ? (
+            <p> your cart is empty.</p>
+          ) : (
+            cartItems.map((items, index) => (
+              <div className="item-cart" key={index}>
+                <div className="image-name">
+                  <img src={items.images[0]} alt={items.title} />
+                  <div className="contact">
+                    <h4>{items.title}</h4>
+                    <p className="price-item">$ {items.price}</p>
+                    <div className="quantity-control">
+                      <button>+</button>
+                      <span className="quantity">1</span>
+                      <button>-</button>
+                    </div>
+                  </div>
+                </div>
+                <button className="delete-item">
+                  <FaTrashAlt />
+                </button>
+              </div>
+            ))
+          )}
+        </div>
+        <div className="bottom-summary">
+          <div className="shop-table">
+            <p>Total:</p>
+            <span className="total-price">$ {total.toFixed(2)}</span>
+          </div>
+          <div className="place-button">
+            <button type="submit">place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Cart;
