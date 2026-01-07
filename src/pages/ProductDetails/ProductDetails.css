@@ -82,6 +82,14 @@ root {
     border-radius: 2px;
     padding: 12px 15px;
     font-size: 16px;
+    border: 1px solid var(--main-color);
+    transition: 0.3s ease-in-out;
+}
+.item_details .details .btn.in-cart{
+    background: transparent;
+    color: var(--main-color);
+    pointer-events: none;
+
 }
 .item_details .details .btn svg {
     font-size: 20px;

@@ -83,3 +83,35 @@ nav{
   padding-top:150px;
 }
 
+/* toast-wrapper */
+.toast-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  min-width: 250px;
+  min-height: 40px;
+}
+.img-toast{
+  width: auto;
+  height: 100px;
+  object-fit: cover;
+}
+.toast-contact{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
+}
+
+.toast-contact strong{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.toast-contact .btn{
+  margin-top: 5px;
+  font-size: 13px;
+}

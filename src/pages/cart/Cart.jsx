@@ -3,8 +3,9 @@ import { CartContext } from "../../components/4-Context/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
 import "./cart.css";
 function Cart() {
-  const { cartItems } = useContext(CartContext);
-  const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } =
+    useContext(CartContext);
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   console.log("====================================");
   console.log(cartItems);
   console.log("====================================");
@@ -24,13 +25,20 @@ function Cart() {
                     <h4>{items.title}</h4>
                     <p className="price-item">$ {items.price}</p>
                     <div className="quantity-control">
-                      <button>+</button>
-                      <span className="quantity">1</span>
-                      <button>-</button>
+                      <button onClick={() => decreaseQuantity(items.id)}>
+                        -
+                      </button>
+                      <span className="quantity">{items.quantity}</span>
+                      <button onClick={() => increaseQuantity(items.id)}>
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>
-                <button className="delete-item">
+                <button
+                  onClick={() => removeFromCart(items.id)}
+                  className="delete-item"
+                >
                   <FaTrashAlt />
                 </button>
               </div>
