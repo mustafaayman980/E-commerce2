@@ -6,6 +6,8 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Cart from "./pages/cart/Cart";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/5-scroll/ScrollToTop";
+import { AnimatePresence } from "framer-motion";
+import CategoryPage from "./pages/CategoryPage/CategoryPage";
 
 function App() {
   return (
@@ -27,11 +29,14 @@ function App() {
       />
       <nav>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+          </Routes>
+        </AnimatePresence>
       </nav>
     </>
   );

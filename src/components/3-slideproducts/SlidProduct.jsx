@@ -15,7 +15,10 @@ function SlidProduct({ data, title }) {
       <div className="container">
         <div className="top-slide">
           <h2>{title}</h2>
-          
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+            fuga.
+          </p>
         </div>
         <Swiper
           autoplay={{

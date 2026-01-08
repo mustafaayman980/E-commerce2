@@ -14,9 +14,12 @@ const NavLinks = [
   { title: "Contact", link: "/Contact" },
 ];
 function BtmHeader() {
-  const location = useLocation()
+  const location = useLocation();
   const [categories, setCategories] = useState([]);
   const [openList, setOpenList] = useState(false);
+  useEffect(() => {
+    setOpenList(false);
+  }, [location]);
   useEffect(() => {
     fetch("https://dummyjson.com/products/categories")
       .then((res) => res.json())
@@ -28,14 +31,17 @@ function BtmHeader() {
       <div className="container">
         <div className="nav">
           <div className="category-nav">
-            <div className="category_btn" onClick={() => setOpenList(!openList)}>
+            <div
+              className="category_btn"
+              onClick={() => setOpenList(!openList)}
+            >
               <IoMdMenu />
               <p>browse category </p>
               <MdOutlineArrowDropDown />
             </div>
-            <div className={`category-nav-list ${openList ? "active": "" }`}>
+            <div className={`category-nav-list ${openList ? "active" : ""}`}>
               {categories.map((category) => (
-                <Link to={category.slug}>{category.name}</Link>
+                <Link to={`category/${category.slug}`}>{category.name}</Link>
               ))}
             </div>
           </div>
