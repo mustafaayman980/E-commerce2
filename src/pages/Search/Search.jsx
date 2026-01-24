@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
-import { useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 function Search() {
   const [search, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (search.trim()) {
       navigate(`/search?q=${encodeURIComponent(search.trim())}`);
     }
+    setSuggestions([]);
   };
 
   useEffect(() => {
     const fetchSuggestion = async () => {
+      if (!search.trim()) {
+        setSuggestions([]);
+        return;
+      }
       try {
         const res = await fetch(
-          `https://dummyjson.com/products/search?q=${search}`
+          `https://dummyjson.com/products/search?q=${search}`,
         );
         const data = await res.json();
         setSuggestions(data.products.slice(0, 5) || []);
@@ -39,6 +45,9 @@ function Search() {
   console.log("====================================");
   console.log(suggestions);
   console.log("====================================");
+  useEffect(() => {
+    setSuggestions([]);
+  }, [location]);
 
   return (
     <div className="search">
@@ -49,6 +58,7 @@ function Search() {
           name="search"
           id="search"
           onChange={(e) => setSearch(e.target.value)}
+          autoComplete="off"
         />
         <button type="submit">
           <IoSearchSharp />
@@ -57,7 +67,12 @@ function Search() {
       {suggestions.length > 0 && (
         <ul className="suggest">
           {suggestions.map((item) => (
-            <li key={item.id}>{item.title}</li>
+            <Link to={`/products/${item.id}`}>
+              <li key={item.id}>
+                <img src={item.images[0]} alt={item.title} />
+                <span>{item.title}</span>
+              </li>
+            </Link>
           ))}
         </ul>
       )}

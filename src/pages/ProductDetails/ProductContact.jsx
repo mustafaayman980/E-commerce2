@@ -6,9 +6,10 @@ import toast from "react-hot-toast";
 import { Navigate, useNavigate } from "react-router";
 
 function ProductContact({ product }) {
-  const { cartItems, addToCart } = useContext(CartContext);
-   const navigate = useNavigate();
-   const isInCart = cartItems.some((i) => i.id === product.id);
+  const { cartItems, addToCart, addToFavorites, favorites, removeFromFav } =
+    useContext(CartContext);
+  const navigate = useNavigate();
+  const isInCart = cartItems.some((i) => i.id === product.id);
   const handleAddToCart = () => {
     addToCart(product);
     toast.success(
@@ -28,9 +29,22 @@ function ProductContact({ product }) {
           </div>
         </div>
       </div>,
-      { duration: 5000 }
+      { duration: 5000 },
     );
+    
   };
+
+  const isInFav = favorites.some((i) => i.id === product.id);
+  const handleToFav = () => {
+    if (isInFav) {
+      removeFromFav(product.id);
+      toast.error(`${product.title} removed from favorites`);
+    } else {
+      addToFavorites(product);
+      toast.success(`${product.title} added to favorites`);
+    }
+  };
+
   return (
     <div className="details">
       <h1 className="name">{product.title}</h1>
@@ -60,7 +74,7 @@ function ProductContact({ product }) {
         {isInCart ? "item in Cart" : "Add to cart"} <FaShoppingCart />
       </button>
       <div className="icons">
-        <span>
+        <span className={`${isInFav ? "in-fav" : ""} `} onClick={handleToFav}>
           <FaRegHeart />
         </span>
         <span>

@@ -9,7 +9,8 @@ import { CartContext } from "../4-Context/CartContext";
 import toast from "react-hot-toast";
 function Product({ item }) {
   const navigate = useNavigate();
-  const { cartItems, addToCart } = useContext(CartContext);
+  const { cartItems, addToCart, addToFavorites, favorites, removeFromFav } =
+    useContext(CartContext);
 
   const isInCart = cartItems.some((i) => i.id === item.id);
   const handleAddToCart = () => {
@@ -27,13 +28,24 @@ function Product({ item }) {
           </div>
         </div>
       </div>,
-      { duration: 5000 }
+      { duration: 5000 },
     );
+  };
+
+  //favorites
+  const isInFav = favorites.some((i) => i.id === item.id);
+  const handleToFav = () => {
+    if (isInFav) {
+      removeFromFav(item.id)
+      toast.error(`${item.title} removed from favorites`);
+    } else {
+      addToFavorites(item);
+      toast.success(`${item.title} added to favorites`);
+    }
   };
 
   return (
     <div className={`product ${isInCart ? "in-cart" : " "}`}>
-      
       <Link to={`/products/${item.id}`}>
         <div className="card">
           <span className="status-cart">
@@ -61,7 +73,7 @@ function Product({ item }) {
         <span className="add-to-cart" onClick={handleAddToCart}>
           <FaCartArrowDown />
         </span>
-        <span>
+        <span className={`${isInFav ? "in-fav":""} `} onClick={handleToFav}>
           <FaRegHeart />
         </span>
         <span>

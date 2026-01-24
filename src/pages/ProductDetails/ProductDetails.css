@@ -112,6 +112,12 @@ root {
     cursor: pointer;
     transition: 0.3s;
 }
+.item_details .details .icons span.in-fav{
+     background: var(--main-color);
+} 
+.item_details .details .icons span.in-fav svg{
+     fill: var(--white-color);
+}
 .item_details .details .icons span:hover{
     background: var(--main-color);
 

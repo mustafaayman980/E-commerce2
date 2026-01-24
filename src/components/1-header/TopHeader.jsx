@@ -8,7 +8,7 @@ import "./header.css";
 import { CartContext } from "../4-Context/CartContext";
 import Search from "../../pages/Search/Search";
 function TopHeader() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, favorites } = useContext(CartContext);
   return (
     <div className="top-header">
       <div className="container">
@@ -19,8 +19,10 @@ function TopHeader() {
         <Search />
         <div className="header_icons">
           <div className="icon">
+            <Link to="/favorites">
             <FaRegHeart />
-            <span className="count">0</span>
+            <span className="count">{favorites.length}</span>
+            </Link>
           </div>
           <div className="icon">
             <Link to="/cart">

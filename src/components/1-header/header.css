@@ -166,3 +166,34 @@
     fill: var(--white-color);
     font-size: 22px;
 }
+  
+
+
+/* search */
+
+.search{
+    position: relative;
+}
+.suggest {
+    margin-top: 2px;
+    position: absolute;
+    background: var(--white-color);
+    width: 100%;
+    border: 1px solid var(--border-color);
+    list-style: none;
+}
+.suggest li{
+    border-bottom: 1px solid var(--border-color);
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.suggest li span{
+    font-size: 14px;
+    color: var(--color-heading);
+
+}
+.suggest li img{
+    width: 30px;
+}

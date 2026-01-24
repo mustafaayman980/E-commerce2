@@ -133,7 +133,14 @@ root {
     border-radius: 100%;
     cursor: pointer;
 }
-
+/*start fav */
+.product .icons span.in-fav{
+    background: var(--main-color);
+}
+.product .icons span.in-fav svg{
+    fill: var(--white-color);
+}
+/* end fav */
 .product.in-cart .icons .add-to-cart {
     background: var(--main-color);
     pointer-events: none;
