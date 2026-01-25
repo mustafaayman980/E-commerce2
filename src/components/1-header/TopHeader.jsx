@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Form, Link } from "react-router";
-import Logo from "../../img/logo.png";
+import Logo from "../../img/logo1.png";
 
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";

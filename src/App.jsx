@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import SearchPage from "./pages/Search/SearchPage";
 import Favorites from "./pages/Favorites/Favorites";
+import Footer from "./components/7-Footer/Footer";
 
 function App() {
   return (
@@ -37,12 +38,12 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/favorites" element={<Favorites />} />
-
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/category/:category" element={<CategoryPage />} />
           </Routes>
         </AnimatePresence>
       </nav>
+      <Footer />
     </>
   );
 }
